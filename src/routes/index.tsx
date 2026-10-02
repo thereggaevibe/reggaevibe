@@ -90,30 +90,6 @@ function Home() {
               </div>
             </div>
 
-            <div className="relative grid grid-cols-3 gap-3 rounded-xl bg-background p-4 sm:gap-4 sm:p-6">
-              {[0, 1, 2].map((index) => {
-                const play = artwork[index];
-                const track = play?.tracks;
-                return (
-                  <div key={play?.id ?? index} className="relative aspect-square overflow-hidden rounded-lg border-2 border-background">
-                    <img src={track?.artwork_url ?? stationLogoAsset.url} alt={track ? `${track.title} artwork` : "Reggae Vibe Radio artwork"} width={420} height={420} className="size-full object-cover" />
-                    <div className="absolute inset-x-0 bottom-0 flex items-center gap-1 bg-background/85 p-2">
-                      <div className="min-w-0 flex-1">
-                        <p className="truncate text-xs font-extrabold sm:text-sm">{track?.title ?? "Strictly positive"}</p>
-                        <p className="truncate text-[10px] text-muted-foreground sm:text-xs">{track?.artist || "Reggae Vibe Radio"}</p>
-                      </div>
-                      {track && (
-                        <HeartVoteButton
-                          voted={votedTrackIds.includes(track.id)}
-                          label={`Vote for ${track.title}`}
-                          onVote={() => voteForTrack(track.id)}
-                        />
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
           </div>
         </div>
       </section>
