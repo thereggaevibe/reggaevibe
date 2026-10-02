@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useQuery } from "@tanstack/react-query";
 
 
 import { Play } from "lucide-react";
@@ -13,10 +12,8 @@ import { ShowsPreview } from "@/components/widgets/ShowsPreview";
 import { FlyerSlider } from "@/components/widgets/FlyerSlider";
 import { AndroidBetaBanner } from "@/components/widgets/AndroidBetaBanner";
 import { CurrentShowFeature } from "@/components/widgets/CurrentShowFeature";
-import { HeartVoteButton } from "@/components/ui/HeartVoteButton";
 import { AdZoneRenderer } from "@/components/ads/AdZoneRenderer";
 import { useRadio } from "@/components/player/radio-provider";
-import { recentlyPlayedQuery } from "@/lib/station-queries";
 import heroImage from "@/assets/hero-soundsystem.jpg";
 import { stationLogoAsset } from "@/lib/site-images";
 import { reggaeVibeBannerAsset as reggaeVibeBanner } from "@/lib/site-images";
@@ -38,9 +35,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const { playing, toggle, nowPlaying, voteForTrack, votedTrackIds } = useRadio();
-  const { data: recent } = useQuery(recentlyPlayedQuery(7, 5));
-  const artwork = recent?.slice(0, 3) ?? [];
+  const { playing, toggle, nowPlaying } = useRadio();
 
   return (
     <>
