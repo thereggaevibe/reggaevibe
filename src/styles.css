@@ -1,0 +1,297 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Reggae Vibe Radio design system.
+ * Dark studio background with rasta accents (green / gold / red).
+ * All colors are oklch tokens. Never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-rasta-green: var(--rasta-green);
+  --color-rasta-red: var(--rasta-red);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-display: "Anton", "Arial Narrow", sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-brand: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-graffiti: "Permanent Marker", cursive;
+  --shadow-glow: 0 0 0 1px var(--border), 0 18px 50px -20px var(--glow);
+  --shadow-lift: 0 24px 60px -30px oklch(0 0 0 / 0.85);
+  --animate-marquee: marquee 18s linear infinite;
+  --animate-eq: eq 0.9s ease-in-out infinite;
+  --animate-pulse-live: pulse-live 1.6s ease-in-out infinite;
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.145 0.01 100);
+  --foreground: oklch(0.97 0.01 95);
+  --surface: oklch(0.205 0.012 95);
+  --surface-2: oklch(0.265 0.018 95);
+  --card: oklch(0.21 0.021 152);
+  --card-foreground: oklch(0.97 0.01 95);
+  --popover: oklch(0.21 0.021 152);
+  --popover-foreground: oklch(0.97 0.01 95);
+  --primary: oklch(0.61 0.17 148);
+  --primary-foreground: oklch(0.14 0.02 150);
+  --secondary: oklch(0.28 0.028 152);
+  --secondary-foreground: oklch(0.97 0.01 95);
+  --muted: oklch(0.26 0.024 152);
+  --muted-foreground: oklch(0.72 0.02 130);
+  --accent: oklch(0.82 0.16 88);
+  --accent-foreground: oklch(0.16 0.02 150);
+  --gold: oklch(0.88 0.18 94);
+  --gold-foreground: oklch(0.16 0.02 150);
+  --rasta-green: oklch(0.59 0.17 148);
+  --rasta-red: oklch(0.66 0.2 35);
+  --destructive: oklch(0.58 0.21 27);
+  --destructive-foreground: oklch(0.98 0.01 95);
+  --border: oklch(0.34 0.02 100);
+  --input: oklch(0.32 0.03 152);
+  --ring: oklch(0.82 0.16 88);
+  --glow: oklch(0.63 0.17 146 / 0.35);
+  --chart-1: oklch(0.63 0.17 146);
+  --chart-2: oklch(0.82 0.16 88);
+  --chart-3: oklch(0.58 0.21 27);
+  --chart-4: oklch(0.72 0.11 165);
+  --chart-5: oklch(0.68 0.13 60);
+  --sidebar: oklch(0.19 0.019 152);
+  --sidebar-foreground: oklch(0.97 0.01 95);
+  --sidebar-primary: oklch(0.63 0.17 146);
+  --sidebar-primary-foreground: oklch(0.14 0.02 150);
+  --sidebar-accent: oklch(0.26 0.024 152);
+  --sidebar-accent-foreground: oklch(0.97 0.01 95);
+  --sidebar-border: oklch(0.32 0.03 152);
+  --sidebar-ring: oklch(0.82 0.16 88);
+}
+
+.dark {
+  --background: oklch(0.16 0.017 150);
+  --foreground: oklch(0.97 0.01 95);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes eq {
+  0%,
+  100% {
+    transform: scaleY(0.25);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes pulse-live {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes schedule-in {
+  from { opacity: 0; transform: translateX(18px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@utility rasta-stripe {
+  background-image: linear-gradient(
+    90deg,
+    var(--rasta-green) 0%,
+    var(--rasta-green) 33.33%,
+    var(--gold) 33.33%,
+    var(--gold) 66.66%,
+    var(--rasta-red) 66.66%,
+    var(--rasta-red) 100%
+  );
+}
+
+@utility gradient-hero {
+  background-image:
+    radial-gradient(1200px 500px at 15% -10%, var(--glow), transparent 60%),
+    radial-gradient(900px 400px at 90% 0%, oklch(0.82 0.16 88 / 0.18), transparent 60%),
+    linear-gradient(180deg, var(--surface) 0%, var(--background) 70%);
+}
+
+@utility panel {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+}
+
+@utility text-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  line-height: 0.95;
+}
+
+@utility font-brand {
+  font-family: var(--font-brand);
+}
+
+@utility shadow-poster {
+  box-shadow: 7px 7px 0 var(--gold-foreground);
+}
+
+.urban-hero::after {
+  content: "REGGAE";
+  position: absolute;
+  inset: auto -2rem -2rem auto;
+  color: color-mix(in oklab, var(--foreground) 5%, transparent);
+  font-family: var(--font-brand);
+  font-size: clamp(8rem, 25vw, 23rem);
+  font-style: italic;
+  font-weight: 900;
+  line-height: 0.75;
+  pointer-events: none;
+}
+
+.graffiti-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: var(--foreground);
+  font-family: var(--font-graffiti);
+  font-size: clamp(1.4rem, 5vw, 4.2rem);
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  text-shadow: 3px 3px 0 var(--background), -2px -2px 0 var(--background);
+  pointer-events: none;
+}
+
+.animate-schedule-in .show-row {
+  opacity: 0;
+  animation: schedule-in 0.4s ease-out forwards;
+}
+
+.artist-cutout {
+  filter: drop-shadow(10px 8px 0 var(--gold-foreground));
+  clip-path: polygon(8% 0, 98% 3%, 94% 18%, 100% 33%, 95% 52%, 100% 73%, 91% 100%, 4% 98%, 9% 78%, 2% 56%, 8% 36%, 1% 17%);
+}
+
+@media (min-width: 1024px) {
+  .brand-vertical { writing-mode: vertical-rl; transform: rotate(180deg); }
+}
+
+/* Glowing "+" beside the Events title — invites members to add their own event. */
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 6px 1px color-mix(in oklab, var(--gold) 45%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 20px 5px color-mix(in oklab, var(--gold) 75%, transparent);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-schedule-in .show-row { animation: none; opacity: 1; }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+
+  a {
+    position: relative;
+    text-decoration: none;
+  }
+
+  a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-out;
+  }
+
+  a:hover::after {
+    transform: scaleX(1);
+  }
+}
